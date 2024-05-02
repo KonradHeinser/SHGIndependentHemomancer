@@ -91,7 +91,7 @@
             </li>
         </stages>
         <comps>
-            <li Class="EBSGFramework.HediffCompProperties_GiveAbilityAtSeverity">
+            <li Class="SuperheroGenesBase.HediffCompProperties_GiveAbilityAtSeverity">
                 <abilitiesAtSeverities>
                     <li>
                         <abilityDef>SHG_Hemomancer_ShiftNormal</abilityDef>

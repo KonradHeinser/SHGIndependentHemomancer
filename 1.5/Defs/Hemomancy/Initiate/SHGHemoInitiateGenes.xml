@@ -25,7 +25,7 @@
             <li MayRequire="Ludeon.Rimworld.Ideology">Increases ideology spread frequency based on Hemomancy Proficiency.</li>
         </customEffectDescriptions>
         <modExtensions>
-			<li Class="EBSGFramework.EBSGExtension" MayRequire="Ludeon.Rimworld.Ideology">
+			<li Class="SuperHeroGenesBase.SHGExtension" MayRequire="Ludeon.Rimworld.Ideology">
 				<hediffsToApply><li><hediff>SHG_Hemomancer_Praise</hediff></li></hediffsToApply>
 			</li>
 		</modExtensions>
@@ -81,14 +81,14 @@
         <label>hemopriest</label>
         <description>Hemopriests release a constant "holy" aura that makes everyone around them willing to listen to them about the gifts blood can bring. Many of them also have the ability to release a rejuvenating mist and create small pills that greatly enhance combative abilities.</description>
         <iconPath>Hemomancer/Initiate/Gene_Hemomancer_Priest</iconPath>
-        <geneClass>EBSGFramework.HediffAdder</geneClass>
+        <geneClass>SuperHeroGenesBase.HediffAdder</geneClass>
         <displayOrderInCategory>10</displayOrderInCategory>
         <prerequisite>SHG_Hemomancer_Initiate</prerequisite>
         <statOffsets>
             <SHG_HemomancyProficiency>0.5</SHG_HemomancyProficiency>
         </statOffsets>
         <modExtensions>
-			<li Class="EBSGFramework.EBSGExtension">
+			<li Class="SuperHeroGenesBase.SHGExtension">
 				<hediffsToApply><li><hediff>SHG_Hemomancer_Priest</hediff></li></hediffsToApply>
 			</li>
 		</modExtensions>
@@ -108,7 +108,7 @@
             <li MayRequire="Ludeon.Rimworld.Ideology">Increases ideology spread frequency based on Hemomancy Proficiency.</li>
         </customEffectDescriptions>
         <modExtensions>
-			<li Class="EBSGFramework.EBSGExtension" MayRequire="Ludeon.Rimworld.Ideology">
+			<li Class="SuperHeroGenesBase.SHGExtension" MayRequire="Ludeon.Rimworld.Ideology">
 				<hediffsToApply><li><hediff>SHG_Hemomancer_Worship</hediff></li></hediffsToApply>
 			</li>
 		</modExtensions>
@@ -121,11 +121,11 @@
         <iconPath>Hemomancer/Initiate/Gene_Hemomancer_TheGiftOfBlood</iconPath>
         <displayOrderInCategory>12</displayOrderInCategory>
         <prerequisite>SHG_Hemomancer_Priest</prerequisite>
-        <geneClass>EBSGFramework.Gene_HemoHediffAdder</geneClass>
+        <geneClass>SuperHeroGenesBase.Gene_HemoHediffAdder</geneClass>
         <resourceLabel>hemogen</resourceLabel>
         <resourceLossPerDay>1</resourceLossPerDay>
         <modExtensions>
-			<li Class="EBSGFramework.EBSGExtension">
+			<li Class="SuperHeroGenesBase.SHGExtension">
 				<hediffsToApply><li><hediff>SHG_Hemomancer_TheGiftOfBlood</hediff></li></hediffsToApply>
 			</li>
 		</modExtensions>

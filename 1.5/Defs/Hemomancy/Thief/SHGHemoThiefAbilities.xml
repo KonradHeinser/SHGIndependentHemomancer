@@ -18,7 +18,7 @@
             <rangeStat>SHG_HemomancerRange_Short</rangeStat>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
                 <hemogenGain>0.3</hemogenGain>
                 <bloodFilthToSpawnRange>1</bloodFilthToSpawnRange>
                 <resistanceGain>1</resistanceGain>
@@ -38,7 +38,7 @@
             <rangeStat>SHG_HemomancerRange_Short</rangeStat>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
                 <replacementHediff>SHG_Hemomancer_StealPerceptivenessDebuff</replacementHediff>
                 <hediffToSelf>SHG_Hemomancer_StealPerceptiveness</hediffToSelf>
                 <hemogenGain>0.1</hemogenGain>
@@ -60,7 +60,7 @@
             <rangeStat>SHG_HemomancerRange_Short</rangeStat>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
                 <replacementHediff>SHG_Hemomancer_StealDefenseDebuff</replacementHediff>
                 <hediffToSelf>SHG_Hemomancer_StealDefense</hediffToSelf>
                 <hemogenGain>0.1</hemogenGain>
@@ -82,7 +82,7 @@
             <rangeStat>SHG_HemomancerRange_Short</rangeStat>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
                 <replacementHediff>SHG_Hemomancer_StealStrengthDebuff</replacementHediff>
                 <hediffToSelf>SHG_Hemomancer_StealStrength</hediffToSelf>
                 <hemogenGain>0.1</hemogenGain>
@@ -107,7 +107,7 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
                 <hemogenGain>0.6</hemogenGain>
                 <bloodFilthToSpawnRange>2</bloodFilthToSpawnRange>
                 <resistanceGain>1</resistanceGain>
@@ -123,6 +123,7 @@
         <iconPath>Hemomancer/Thief/Gene_Hemomancer_Sow</iconPath>
         <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <verbProperties>
             <range>2</range>
             <rangeStat>SHG_HemomancerRange_Touch</rangeStat>
@@ -132,8 +133,8 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityRemoveMultipleHediffs">
-                <compClass>EBSGFramework.CompAbilityEffect_RemoveMultipleHediffs</compClass>
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityRemoveMultipleHediffs">
+                <compClass>SuperHeroGenesBase.CompAbilityEffect_RemoveMultipleHediffs</compClass>
                 <hediffs> <!--List includes all injuries and physical chronic conditions in the base game, exceptions for bloodfeeder marks and other special injuries-->
                     <li>MissingBodyPart</li>
                     <li>Misc</li>
@@ -183,7 +184,7 @@
             <requireLineOfSight>True</requireLineOfSight>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
                 <replacementHediff>SHG_Hemomancer_MarkForDeath</replacementHediff>
                 <hemogenGain>0.1</hemogenGain>
                 <bloodFilthToSpawnRange>1</bloodFilthToSpawnRange>
@@ -203,6 +204,7 @@
         <iconPath>Hemomancer/Thief/Gene_Hemomancer_MarkForDeath</iconPath>
         <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <targetRequired>false</targetRequired>
         <verbProperties>
             <range>0.5</range>
@@ -211,8 +213,8 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_AbilityRemoveMultipleHediffs">
-                <compClass>EBSGFramework.CompAbilityEffect_RemoveMultipleHediffs</compClass>
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityRemoveMultipleHediffs">
+                <compClass>SuperHeroGenesBase.CompAbilityEffect_RemoveMultipleHediffs</compClass>
                 <hediffs> <!--List includes most injuries, excluding lost parts-->
                     <li>Misc</li>
                     <li>Burn</li>
@@ -261,7 +263,7 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="EBSGFramework.CompProperties_EBSGBurst">
+            <li Class="SuperHeroGenesBase.CompProperties_SHGBurst">
                 <radius>10</radius>
 				<damageDef>Burn</damageDef>
 				<injureSelf>false</injureSelf>
@@ -270,7 +272,7 @@
 				<postExplosionThingChance>100</postExplosionThingChance>
 				<damageAmount>40</damageAmount>
             </li>
-            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
+            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
                 <hemogenGain>0.1</hemogenGain>
                 <bloodFilthToSpawnRange>2</bloodFilthToSpawnRange>
                 <resistanceGain>1</resistanceGain>

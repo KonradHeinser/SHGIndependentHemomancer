@@ -134,7 +134,7 @@
                 <severityPerDay>-0.5</severityPerDay>
             </li>
             <li Class="HediffCompProperties_DisappearsOnDeath" />
-            <li Class="EBSGFramework.HediffCompProperties_GiveAbilityAtSeverity">
+            <li Class="SuperheroGenesBase.HediffCompProperties_GiveAbilityAtSeverity">
                 <abilitiesAtSeverities>
                     <li>
                         <abilityDef>SHG_Hemomancer_MarkForDeathDefiance</abilityDef>
@@ -145,3 +145,5 @@
         </comps>
     </HediffDef>
 </Defs>
+
+
