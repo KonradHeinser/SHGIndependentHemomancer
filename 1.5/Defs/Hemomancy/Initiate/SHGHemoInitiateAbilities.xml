@@ -22,7 +22,7 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="SuperHeroGenesBase.CompProperties_AbilityBloodDrain">
+            <li Class="EBSGFramework.CompProperties_AbilityBloodDrain">
                 <hemogenGain>0</hemogenGain>
                 <bloodFilthToSpawnRange>0</bloodFilthToSpawnRange>
                 <resistanceGain>1</resistanceGain>

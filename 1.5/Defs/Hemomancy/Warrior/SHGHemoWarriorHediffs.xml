@@ -276,7 +276,7 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
         <comps>
-            <li Class="SuperHeroGenesBase.HediffCompProperties_TieredRegeneration">
+            <li Class="EBSGFramework.HediffCompProperties_TieredRegeneration">
                 <healWhileRegrowing>True</healWhileRegrowing>
                 <regenSets>
                     <li>

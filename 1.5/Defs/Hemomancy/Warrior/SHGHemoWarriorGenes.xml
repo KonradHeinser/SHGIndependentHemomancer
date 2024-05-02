@@ -16,7 +16,7 @@
         <label>blood claws</label>
         <description>Carriers of this gene have claws attached to their hands, and can use an ability that boosts their melee damage based on tier. Each use adds one tier, up to a maximum of 6, and every day one tier is lost. The effects of this ability are influenced by Hemomancy Proficiency.\n\nIf the hand or arm is lost or replaced, then the claws are permanently gone. You can still use the buff in this situation.</description>
         <iconPath>Hemomancer/Warrior/Gene_Hemomancer_BloodClaws</iconPath>
-        <geneClass>SuperHeroGenesBase.HediffAdder</geneClass>
+        <geneClass>EBSGFramework.HediffAdder</geneClass>
         <displayOrderInCategory>1</displayOrderInCategory>
         <prerequisite>SHG_Hemomancer_Warrior</prerequisite>
         <abilities>
@@ -26,7 +26,7 @@
             <AbilityDef>SHG_Hemomancer_BloodClaws</AbilityDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="SuperHeroGenesBase.SHGExtension">
+            <li Class="EBSGFramework.EBSGExtension">
 				<hediffsToApply>
 					<li>
 						<hediff>SHG_Hemomancer_BloodClaws</hediff>
@@ -150,11 +150,11 @@
         <iconPath>Hemomancer/Warrior/Gene_Hemomancer_TrueRegeneration</iconPath>
         <displayOrderInCategory>14</displayOrderInCategory>
         <prerequisite>SHG_Hemomancer_Champion</prerequisite>
-        <geneClass>SuperHeroGenesBase.Gene_HemoHediffAdder</geneClass>
+        <geneClass>EBSGFramework.Gene_HemoHediffAdder</geneClass>
         <resourceLabel>hemogen</resourceLabel>
         <resourceLossPerDay>1</resourceLossPerDay>
         <modExtensions>
-			<li Class="SuperHeroGenesBase.SHGExtension">
+			<li Class="EBSGFramework.EBSGExtension">
 				<hediffsToApply><li><hediff>SHG_Hemomancer_TrueRegeneration</hediff></li></hediffsToApply>
 			</li>
 		</modExtensions>
