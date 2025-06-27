@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>        
+    <ThingDef ParentName="EtherealThingBase" Name="SHG_ShieldBase" Abstract="True">
+        <thingClass>ThingWithComps</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <graphicData>
+            <color>(180, 231, 237)</color>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>OtherSHG/Ripple</texPath> <!--Use OtherSHG/Line to create a blinking circle-->
+            <shaderType>SHG_Shield</shaderType>
+            <shaderParameters>
+                <_PulseInterval>0.5</_PulseInterval>
+                <_DistortionScale>0.5</_DistortionScale>
+                <_DistortionIntensity>0.15</_DistortionIntensity>
+                <_MinAlpha>0.1</_MinAlpha>
+                <_MaxAlpha>0.3</_MaxAlpha>
+                <_DistortionTex>/Things/Mote/SmokeTiled</_DistortionTex>
+            </shaderParameters>
+        </graphicData>
+    </ThingDef>
+
+    <ShaderTypeDef>
+        <defName>SHG_Shield</defName>
+        <shaderPath>Map/BulletShieldPsychic</shaderPath> <!--I don't know what this means or why it works, but it works-->
+    </ShaderTypeDef>    
+
+        <!--Hemomancy-->
+    <ThingDef ParentName="DrugBase">
+        <defName>SHG_BloodPill</defName>
+        <label>blood pill</label>
+        <description>A drug for preventing wound infections and increasing the ability to heal wounds and fight current infections. If the pawn's ideology would make them hate bloodfeeders, that thought is suppressed for the duration.\n\nThis will NOT give a hemogenic pawn any hemogen.</description>
+        <possessionCount>10</possessionCount>
+        <descriptionHyperlinks><HediffDef>SHG_BloodPillHigh</HediffDef></descriptionHyperlinks>
+        <graphicData>
+            <texPath>Drug/SHG_BloodPill</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <socialPropernessMatters>false</socialPropernessMatters>
+        <rotatable>false</rotatable>
+        <statBases>
+            <WorkToMake>600</WorkToMake>
+            <MarketValue>50</MarketValue>
+            <Mass>0.01</Mass>
+            <Flammability>0.1</Flammability>
+        </statBases>
+        <techLevel>Industrial</techLevel>
+        <tradeTags Inherit="False">
+            <li>ExoticMisc</li>
+        </tradeTags>
+        <ingestible>
+            <foodType>Processed</foodType>
+            <baseIngestTicks>100</baseIngestTicks>
+            <chairSearchRadius>0</chairSearchRadius>
+            <ingestSound>Ingest_Pill</ingestSound>
+            <ingestHoldUsesTable>false</ingestHoldUsesTable>
+            <ingestCommandString>Take {0}</ingestCommandString>
+            <ingestReportString>Taking {0}.</ingestReportString>
+            <drugCategory>Medical</drugCategory>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>SHG_BloodPillHigh</hediffDef>
+                    <severity>1.0</severity>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <thingSetMakerTags>
+            <li>SHGDrug</li>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
+        <comps>
+            <li Class="CompProperties_Drug">
+                <listOrder>1000</listOrder>
+                <overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SHG_Hemomancer_BloodSpear</defName>
+        <label>blood spear</label>
+        <graphicData>
+            <texPath>Projectiles/SHG_Hemomancer_BloodSpear</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>RangedStab</damageDef>
+            <damageAmountBase>50</damageAmountBase>
+            <armorPenetrationBase>0.05</armorPenetrationBase>
+            <stoppingPower>1</stoppingPower>
+            <speed>55</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="SHG_ShieldBase">
+        <defName>SHG_Hemomancer_HemogenBarrier</defName>
+        <label>hemogen barrier</label>
+        <graphicData>
+            <color>(230, 23, 23)</color>
+            <drawSize>1</drawSize>
+        </graphicData>
+        <comps>
+            <li Class="CompProperties_ProjectileInterceptor">
+                <radius>1</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+                <interceptOutgoingProjectiles>false</interceptOutgoingProjectiles>
+                <interceptAirProjectiles>true</interceptAirProjectiles>
+                <color>(0.8, 0.2, 0.2)</color>
+                <minAlpha>0.2</minAlpha>
+                <interceptEffect>Interceptor_BlockedProjectile</interceptEffect>
+            </li>
+            <li Class="CompProperties_DestroyAfterDelay">
+                <delayTicks>2500</delayTicks>
+            </li>
+        </comps>
+    </ThingDef>    
+
+    <MentalStateDef ParentName="BaseMentalState">
+        <defName>SHG_Bloodlust</defName>
+        <stateClass>MentalState_BerserkWarcall</stateClass>
+        <label>blooodlust</label>
+        <category>Aggro</category>
+        <blockRandomInteraction>true</blockRandomInteraction>
+        <nameColor>(0.9,0.2,0.5)</nameColor>
+        <beginLetter>{0} has been driven into a murderous rage.</beginLetter>
+        <recoveryMessage>{0} has become hostile once more.</recoveryMessage>
+        <baseInspectLine>Mental state: Bloodlust</baseInspectLine>
+        <stateEffecter>AnimalWarcallMentalState</stateEffecter>
+        <recoverFromSleep>true</recoverFromSleep>
+        <inCaravanCanDo>true</inCaravanCanDo>
+        <blocksDefendAndExpandHive>true</blocksDefendAndExpandHive>
+    </MentalStateDef>
+
+    <HediffDef>
+        <defName>SHG_BloodPillHigh</defName>
+        <hediffClass>Hediff_High</hediffClass>
+        <label>blood pill</label>
+        <description>This stops the pawn from suffering from new wound infections, and enhances their ability to heal wounds and fight off all infections.</description>
+        <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <maxSeverity>1.0</maxSeverity>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statFactors>
+                    <InjuryHealingFactor>3</InjuryHealingFactor>
+                    <ImmunityGainSpeed>3</ImmunityGainSpeed>
+                </statFactors>
+                <makeImmuneTo>
+                    <li>WoundInfection</li>
+                </makeImmuneTo>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.1</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <AbilityCategoryDef>
+        <defName>SuperPowers</defName>
+        <displayOrder>2000</displayOrder>
+    </AbilityCategoryDef>
+
+    <AbilityDef Abstract="True" Name="SHGPowerAbilitiesBase">
+        <jobDef>CastAbilityOnThingWithoutWeaponInterruptible</jobDef>
+        <aiCanUse>True</aiCanUse>
+        <cooldownTicksRange>100</cooldownTicksRange>
+        <category>SuperPowers</category>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>1</warmupTime>
+        </verbProperties>
+    </AbilityDef>
+
+    <AbilityDef Abstract="True" Name="SHGHemomancyBase" ParentName="SHGPowerAbilitiesBase">
+        <verbProperties>
+            <range>24.9</range>
+            <targetParams>
+                <canTargetPawns>True</canTargetPawns>
+                <canTargetSelf>False</canTargetSelf>
+                <canTargetBuildings>False</canTargetBuildings>
+                <canTargetLocations>False</canTargetLocations>
+                <canTargetMechs>False</canTargetMechs>
+                <canTargetPlants>False</canTargetPlants>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <ThingDef Abstract="true" Name="SuperPowersBoltBase" ParentName="BaseBullet">
+        <graphicData>
+            <shaderType>MoteGlow</shaderType>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+		<projectile>
+			<damageAmountBase>20</damageAmountBase>
+			<stoppingPower>3</stoppingPower>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+
+    <DamageDef ParentName="Bullet">
+        <defName>SHG_ToxicBolt</defName>
+        <label>toxic bolt</label>
+        <additionalHediffs>
+            <li>
+                <hediff>ToxicBuildup</hediff>
+                <severityPerDamageDealt>0.015</severityPerDamageDealt>
+                <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
+                <inverseStatScaling>true</inverseStatScaling>
+                <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
+            </li>
+        </additionalHediffs>
+    </DamageDef>
+
+    <ThingDef ParentName="SuperPowersBoltBase">
+        <defName>SHG_Proj_Bolt_Toxic</defName>
+        <label>toxic bolt</label>
+        <graphicData>
+            <texPath>Projectiles/Projectile_ToxicBolt</texPath>
+        </graphicData>
+        <projectile>
+            <damageDef>SHG_ToxicBolt</damageDef>
+        </projectile>
+    </ThingDef>
+
+	<ThingDef Name="SHG_BaseGas" Abstract="True">
+		<thingClass>Gas</thingClass>
+		<label>gas</label>
+		<category>Gas</category>
+		<altitudeLayer>Gas</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<graphicClass>Graphic_Gas</graphicClass>
+			<shaderType>Transparent</shaderType>
+            <texPath>Things/Gas/Puff</texPath>
+            <drawSize>2.2</drawSize>
+		</graphicData>
+        <gas>
+            <rotationSpeed>10</rotationSpeed>
+        </gas>
+	</ThingDef>
+
+    <ThingDef ParentName="SHG_BaseGas">
+        <defName>SHG_BloodMist</defName>
+        <label>blood mist</label>
+        <graphicData>
+            <color>(0.8,0.2,0.2)</color>
+        </graphicData>
+        <gas>
+            <expireSeconds>
+                <min>1</min>
+                <max>1</max>
+            </expireSeconds>
+        </gas>
+    </ThingDef>
+</Defs>

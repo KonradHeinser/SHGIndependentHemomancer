@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <GeneDef>
+        <defName>SHG_Archetypes_Hemomancer</defName>
+        <label>hemomancer</label>
+        <description>Hemomancer were originally exceptionally powerful sanguophages originally created through a mutation of the hemogenic gene. This mutation initially caused extreme bloodlust, but that was removed about a decade later through very careful gene editting. The final version of the gene leaves hemomancers with all of the benefits of the original Hemomancer gene without any of its nasty side-effects.\n\nThis gives access to the hemogen power paths. Any number of paths can be taken at the same time, the only limitting factor is metabolic efficiency.</description>
+        <iconPath>Hemomancer/Gene_Hemomancer</iconPath>
+        <prerequisite>Hemogenic</prerequisite>
+        <geneClass>EBSGFramework.Gene_HemoHediffAdder</geneClass>
+        <resourceLabel>hemogen</resourceLabel>
+        <biostatArc>1</biostatArc>
+        <resourceLossPerDay>-1</resourceLossPerDay>
+        <displayOrderInCategory>-0.9</displayOrderInCategory>
+        <displayCategory>Archite</displayCategory>
+        <biostatCpx>1</biostatCpx>
+		<modExtensions>
+			<li Class="EBSGFramework.EBSGExtension">
+				<hediffsToApply><li><hediff>SHG_Hemomancer</hediff></li></hediffsToApply>
+			</li>
+		</modExtensions>
+        <symbolPack>
+            <prefixSymbols>
+                <li><symbol>hemo</symbol></li>
+                <li><symbol>blood</symbol></li>
+            </prefixSymbols>
+            <suffixSymbols>
+                <li><symbol>mancer</symbol></li>
+            </suffixSymbols>
+        </symbolPack>
+    </GeneDef>
+
+    <HediffDef>
+        <defName>SHG_Hemomancer</defName>
+        <label>hemomancer</label>
+        <description>This pawn's ability to control blood allows them to slow the rate that they lose blood from open wounds.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+                <totalBleedFactor>0.25</totalBleedFactor>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <GeneCategoryDef>
+        <defName>SuperPowersHemoThief</defName>
+        <label>hemogen powers - hemothief</label>
+        <displayPriorityInXenotype>979.9</displayPriorityInXenotype>
+    </GeneCategoryDef>
+
+    <GeneCategoryDef>
+        <defName>SuperPowersHemoIntiate</defName>
+        <label>hemogen powers - hemoinitiate</label>
+        <displayPriorityInXenotype>979.8</displayPriorityInXenotype>
+    </GeneCategoryDef>
+
+    <GeneCategoryDef>
+        <defName>SuperPowersHemoWarrior</defName>
+        <label>hemogen powers - hemowarrior</label>
+        <displayPriorityInXenotype>979.7</displayPriorityInXenotype>
+    </GeneCategoryDef>
+
+    <GeneCategoryDef>
+        <defName>SuperPowersHemoShifter</defName>
+        <label>hemogen powers - hemoshifter</label>
+        <displayPriorityInXenotype>979.6</displayPriorityInXenotype>
+    </GeneCategoryDef>
+
+    <!--Hemomancer bases-->
+    <GeneDef Name="SuperPowersHemoThiefBase" Abstract="True">
+        <displayCategory>SuperPowersHemoThief</displayCategory>
+        <biostatCpx>0</biostatCpx>
+        <biostatMet>-1</biostatMet>
+        <prerequisite>SHG_Archetypes_Hemomancer</prerequisite>
+        <marketValueFactor>1.1</marketValueFactor>
+    </GeneDef>
+
+    <GeneDef Name="SuperPowersHemoInitiateBase" Abstract="True">
+        <displayCategory>SuperPowersHemoIntiate</displayCategory>
+        <biostatCpx>0</biostatCpx>
+        <biostatMet>-1</biostatMet>
+        <prerequisite>SHG_Archetypes_Hemomancer</prerequisite>
+        <marketValueFactor>1.1</marketValueFactor>
+    </GeneDef>
+
+    <GeneDef Name="SuperPowersHemoWarriorBase" Abstract="True">
+        <displayCategory>SuperPowersHemoWarrior</displayCategory>
+        <biostatCpx>0</biostatCpx>
+        <biostatMet>-1</biostatMet>
+        <prerequisite>SHG_Archetypes_Hemomancer</prerequisite>
+        <marketValueFactor>1.1</marketValueFactor>
+    </GeneDef>
+
+    <GeneDef Name="SuperPowersHemoShifterBase" Abstract="True">
+        <displayCategory>SuperPowersHemoShifter</displayCategory>
+        <biostatCpx>0</biostatCpx>
+        <biostatMet>-1</biostatMet>
+        <prerequisite>SHG_Archetypes_Hemomancer</prerequisite>
+        <marketValueFactor>1.1</marketValueFactor>
+    </GeneDef>
+</Defs>
