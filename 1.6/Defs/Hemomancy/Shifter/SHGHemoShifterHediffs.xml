@@ -126,7 +126,7 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
 		<comps>
-			<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_AsexualReproduction">
 				<reproductionIntervalDays>1</reproductionIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
 				<asexualHatchedMessage>SHG_Hemomancer_Starfish</asexualHatchedMessage>
